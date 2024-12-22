@@ -1,0 +1,65 @@
+<head>
+    <style>
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;  /* Light background for the page */
+    color: black;  /* Default text color */
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: #6a0dad;  /* Purple background for the header */
+    color: white;  /* White text for contrast */
+}
+
+header a {
+    color: yellow;  /* Only header links in yellow */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+header a:hover {
+    text-decoration: underline;
+}
+
+a {
+    color: blue;  /* Default color for links elsewhere on the page */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+        h1 {
+            margin: 0;
+        }
+
+        p {
+            margin: 5px 0;
+        }
+
+        section {
+            margin: 20px;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+        }
+
+        footer img {
+            margin: 0 10px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
