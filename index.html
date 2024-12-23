@@ -1,196 +1,589 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Ahmed M.E. Khalil - Curriculum Vitae</title>
-    <link rel="stylesheet" href="style.css"> <!-- Assuming you have a CSS file to style the page -->
+  <meta charset="UTF-8">
+  <title>Dr. Ahmed M.E. Khalil - Curriculum Vitae</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Inline CSS Styling -->
+  <style>
+    /* Global Page Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4; /* Light background for the page */
+      color: black; /* Default text color */
+    }
+
+    /* ------------------------------------------------------------------
+       Turn header into a flex container for placing an image
+       on the left side and text on the right
+       ------------------------------------------------------------------ */
+    header {
+      /* Make header a flex container */
+      display: flex;
+      align-items: center;  /* Vertically center items (image + text) */
+      justify-content: center; /* Adjust if you want left or center alignment */
+      padding: 20px;
+      background-color: #6a0dad; /* Purple background for the header */
+      color: white;              /* White text for contrast */
+    }
+
+    /* Profile image styling */
+    .profile-pic {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: contain;
+      object-position: center;
+      /* Transparent border (adjust thickness as needed) */
+      border: 10px solid transparent;
+      box-sizing: content-box;
+    }
+    /* End for profile image */
+
+    header a {
+      color: yellow; /* Only header links in yellow */
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    header a:hover {
+      text-decoration: underline;
+    }
+
+    a {
+      color: blue;  /* Default color for links elsewhere on the page */
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Basic Section Styles */
+    section {
+      margin: 20px;
+      padding: 20px;
+      background-color: white;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #333;
+      color: white;
+    }
+
+    footer img {
+      margin: 0 10px;
+      vertical-align: middle;
+    }
+
+    /* Tile Row (Flexbox) */
+    .tile-container {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin: 20px;
+      flex-wrap: wrap; /* In case the screen is narrow, tiles will wrap to next line */
+      gap: 10px;       /* Space between tiles if wrapping occurs */
+    }
+
+    /* Individual Tile Style */
+    .tile {
+      background-color: white;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      border-radius: 5px;
+      position: relative; /* for tooltip or other future features */
+    }
+
+    .tile:hover {
+      background-color: #f0f0f0;
+    }
+
+    .tile h2 {
+      margin: 0;
+      font-size: 1.1rem;
+      text-align: center;
+    }
+
+    /* Adjust the tooltip to appear above (NOT overlapping) the tile */
+    .tooltip {
+      display: none;
+      position: absolute;
+      padding: 5px 10px;
+      background: #333;
+      color: #fff;
+      border-radius: 5px;
+      /* position well above the tile */
+      top: -220px;  
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+      z-index: 999;
+    }
+
+    .tile:hover .tooltip {
+      display: block;
+    }
+
+    /* Hidden Content Blocks */
+    .tile-content {
+      display: none; /* Start hidden */
+      margin: 20px;
+      padding: 20px;
+      background-color: white;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    /* For space placeholder if needed */
+    .gallery-space {
+      height: 50px; /* This can be changed based on your needs */
+    }
+
+    /* Decrease font size for Professional Profile section if needed */
+    #profile {
+      font-size: 0.9rem; /* Adjust as needed */
+    }
+
+    /* Slideshow container (now below the tile contents) */
+    .slideshow-container {
+      text-align: center;
+      position: relative;
+      margin: 20px auto; /* place after tile contents */
+      max-width: 600px;
+    }
+
+    /* The image displayed for the slideshow */
+    #slideshow-img {
+      width: 100%;
+      height: auto;
+      max-height: 500px; 
+      object-fit: contain; 
+      display: block;
+      margin: 0 auto;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+
+      /* Fade transition for morph-like effect */
+      opacity: 1;
+      transition: opacity 1s ease-in-out;
+    }
+
+    /* The caption displayed below */
+    #slideshow-caption {
+      margin-top: 10px;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+  </style>
 </head>
+
 <body>
-    <header>
-        <h1>Dr Ahmed M.E. Khalil</h1>
-        <p>Email: <a href="mailto:A.A.Khalil@exeter.ac.uk">A.A.Khalil@exeter.ac.uk</a> | Phone: +44 (0) 7444040804</p>
-        <p>Links: 
-            <a href="https://www.researchgate.net/profile/Ahmed-Khalil-40" target="_blank">ResearchGate</a>, 
-            <a href="https://scholar.google.com/citations?hl=en&user=PeXiH1sAAAAJ" target="_blank">Scholar</a>, 
-            <a href="https://orcid.org/0000-0003-0016-6433" target="_blank">ORCID</a>, 
-            <a href="https://www.linkedin.com/in/ahmed-khalil-6530bb20a/" target="_blank">LinkedIn</a>, 
-            <a href="https://www.scopus.com/authid/detail.uri?authorId=57220744694" target="_blank">Scopus</a>
-        </p>
-    </header>
+  <header>
+    <!-- Add your image here -->
+    <img src="images/profile.png" alt="Profile Picture" class="profile-pic">
+    <!-- End -->
 
+    <div>
+      <!-- Wrapped the header text in a <div> so it aligns next to the image -->
+      <h1>Dr Ahmed M.E. Khalil</h1>
+      <p>
+        Email:
+        <a href="#" onclick="showContact('email')">[Click to Show]</a> |
+        Phone:
+        <a href="#" onclick="showContact('phone')">[Click to Show]</a>
+      </p>
+      <script>
+        function showContact(type) {
+          if (type === 'email') {
+            alert("Email: A.M.E.Khalil.PhDENG@gmail.com");
+          } else if (type === 'phone') {
+            alert("Phone: +44 (0) 7444040804");
+          }
+        }
+      </script>
+      <p>Links:
+        <a href="https://www.researchgate.net/profile/Ahmed-Khalil-40" target="_blank">ResearchGate</a>,
+        <a href="https://scholar.google.com/citations?hl=en&user=PeXiH1sAAAAJ" target="_blank">Scholar</a>,
+        <a href="https://orcid.org/0000-0003-0016-6433" target="_blank">ORCID</a>,
+        <a href="https://www.linkedin.com/in/ahmed-khalil-6530bb20a/" target="_blank">LinkedIn</a>,
+        <a href="https://www.scopus.com/authid/detail.uri?authorId=57220744694" target="_blank">Scopus</a>,
+        <!-- NEW: Academic CV Link -->
+        <a href="https://drive.google.com/file/d/1fxbJpVyqJQD_Drgu2t_I1Xu_mNVrLMpc/view?usp=sharing" target="_blank">Academic CV</a>
+      </p>
+    </div>
+  </header>
+
+  <!-- Tile Container: Profile, Skills, Education, Experience, Publications, Photos Gallery -->
+  <div class="tile-container">
+    <div class="tile" data-target="profile-content">
+      <h2>Professional Profile</h2>
+      <div class="tooltip">Profile info</div>
+    </div>
+
+    <div class="tile" data-target="skills-content">
+      <h2>Skills</h2>
+      <div class="tooltip">Skills info</div>
+    </div>
+    <div class="tile" data-target="education-content">
+      <h2>Education</h2>
+      <div class="tooltip">Education info</div>
+    </div>
+    <div class="tile" data-target="experience-content">
+      <h2>Work Experience</h2>
+      <div class="tooltip">Experience info</div>
+    </div>
+    <div class="tile" data-target="publications-content">
+      <h2>Publications</h2>
+      <div class="tooltip">Publications info</div>
+    </div>
+    <!-- New tile for Photos Gallery -->
+    <div class="tile" data-target="photos-gallery-content">
+      <h2>Photos Gallery</h2>
+      <!-- Show the image on hover -->
+      <div class="tooltip">
+        <img src="images/Japanese Ahmed Samurai.jpg" alt="Japanese Ahmed Samurai" 
+             style="width: 100px; height: auto; border-radius: 5px;" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Profile Content -->
+  <div class="tile-content" id="profile-content">
     <section id="profile">
-        <h2>Professional Profile</h2>
-        <p>With over twelve years of experience spanning nanotechnology, sustainable materials, and chemical and environmental engineering, I am a distinguished academic and researcher known for pioneering sustainable technology and education initiatives. My career is highlighted by impactful contributions at prestigious institutions across the globe, including the University of Exeter, Kyushu University, and Cairo University, where I have advanced the frontiers of engineering education, research, and industry collaboration. Notably, my work has directed UK foundation industries towards a net-zero 2050, underpinned by a strong publication record and successful research grant acquisitions. As an advocate for the circular economy and sustainability, I am driven to develop novel technological solutions that address global environmental challenges, aiming to inspire and cultivate the next generation of engineering leaders.</p>
+      <h2>Professional Profile</h2>
+      <p>Dr Ahmed Khalil is a dedicated academic researcher and educator with over a decade of expertise in chemical, environmental, and materials engineering, particularly in nanotechnology, sustainable composite materials, water and wastewater treatment, and environmental remediation, among several chemical engineering applications. He holds a PhD in Chemical and Environmental Engineering from Kyushu University, Japan, and has built a distinguished career in chemical engineering, materials science, and environmental applications. His work spans (nano)materials, ceramic composites, functional material synthesis, algorithms, modelling, and simulations, contributing to over 30 peer-reviewed publications in high-impact journals, with over 1,700 citations.</p>
+      <p>Dr Khalil has participated in more than 24 international conferences, earning multiple best presenter awards. He excels at project management, advanced characterisation techniques, modelling and simulation, and the use of computational tools. He worked on a three-year independent research programme at the University of Exeter as part of the NERC-funded Fate and co-led its work package on the treatment of Emerging Contaminants in the Fate and Management of Emerging Contaminants (FaME) project using novel treatment graphene-based materials and treatment solutions and played a pivotal role in the EPSRC-funded Transforming the Foundation Industries Research and Innovation Hub (TransFIRe) programme, helping to shape advancements in UK industry.</p>
+      <p>In addition to his research, Dr Khalil contributes to academic development as an Associate Fellow of the Higher Education Academy. With international teaching experience across multiple universities (University of Exeter, UK; Kyushu University, Japan; and Cairo University, Egypt), he has supervised over 10 undergraduate and postgraduate students and taken a leading role in overseeing the Ceramics, Catalysis, and Functional Materials Laboratory at the University of Exeter. Passionate about inspiring future generations and boosting chemical and materials engineering research, he remains committed to advancing sustainable engineering practices and delivering innovative solutions.</p>
     </section>
+  </div>
 
+  <!-- Skills Content -->
+  <div class="tile-content" id="skills-content">
     <section id="skills">
-        <h2>Skills</h2>
-        <ul>
-            <li>Software: FactSage, COMSOL, DYNSIM, Aspen HYSYS, MATLAB, etc.</li>
-            <li>Research projects-linked: Project management, Team leadership, etc.</li>
-            <li>Teaching and Laboratorial Skills</li>
-            <li>Critical Reviewing for several journals</li>
-        </ul>
+      <h2>Skills</h2>
+      <ul>
+        <li><strong>Software:</strong> FactSage; COMSOL; DYNSIM; Aspen HYSYS; MATLAB; Prezi; Adobe apps; AI</li>
+        <li><strong>Research projects-linked:</strong> Project management; Team leadership; Collaboration; Strong written and verbal communication; Data-driven decision-making; Analytical thinking; Problem solving; Workaholic; Publishing in top journals; Opportunistic; Researching on novel materials, approaches and applications.</li>
+        <li><strong>Teaching:</strong> Excellent presenter with several awards; Recognised UK and oversees qualifications (AFHEA, LTHE); assisted in teaching ten modules in the UK, Japan, and Egypt (listed 
+          <a href="https://docs.google.com/document/d/1ubTXOcNNBPKoMbs1NyB0IPEmqPpaHksp/edit?usp=sharing&ouid=117706613399155463093&rtpof=true&sd=true" target="_blank">here</a>).
+        </li>
+        <li><strong>Laboratorial:</strong> Knowledge, training, and experience in using many CHARACTERISATION instruments (e.g., TEM-EDS, SEM-EDS, XRD, XPS, XRF, FTIR, AFM, TGA, Raman, water contact angle goniometer, zetasizer, laser diffraction particle size analyser, surface characterisation analyser, UV-visible spectrophotometer, GC, ICP-MS, LC-MS, HPLC).</li>
+        <li><strong>Administrative:</strong> Acted as deputy manager of the Ceramics, Catalysis, and Functional Materials 
+          <a href="https://drive.google.com/file/d/1DR_b96A1eci4D-q6wXGj-dPAKq6SNIoF/view?usp=sharing" target="_blank">Laboratory</a> 
+          at the University of Exeter; engaged in decision-making board meetings, international conference organisation, and mentoring/co-supervision of numerous 
+          <a href="https://docs.google.com/document/d/1G9w8WHmzAZtZ2hH_3hRBNmJwEMAcVFxq/edit?usp=sharing&ouid=111923954807707911928&rtpof=true&sd=true" target="_blank">(post)graduate students</a>.
+        </li>
+        <li><strong>Critical Reviewing:</strong> Reviewer for several journals, including Chemical Engineering Journal, Journal of Cleaner Production, Macromolecular Materials and Engineering, Nature’s Scientific Reports and others (<a href="https://orcid.org/0000-0003-0016-6433" target="_blank">ORCID</a>).
+        </li>
+      </ul>
     </section>
+  </div>
 
+  <!-- Education Content -->
+  <div class="tile-content" id="education-content">
     <section id="education">
-        <h2>Education</h2>
-        <h3>PhD in Chemical and Environmental Engineering - Kyushu University</h3>
-        <p>Thesis: Promoting the Reactivity of Nano-scale Zero-valent Iron for Water Treatment...</p>
-        <h3>MSc in Chemical Engineering - Cairo University</h3>
-        <p>Thesis: Applications and Development of Stochastic Global Optimization Methods...</p>
-        <h3>Bachelor of Chemical Engineering - Cairo University</h3>
-        <p>Thesis: Maximisation of LPG production...</p>
+      <h2>Education</h2>
+      <h3>PhD in Chemical and Environmental Engineering - Kyushu University</h3>
+      <p>Thesis: Promoting the Reactivity of Nano-scale Zero-valent Iron for Water Treatment...</p>
+      <h3>MSc in Chemical Engineering - Cairo University</h3>
+      <p>Thesis: Applications and Development of Stochastic Global Optimization Methods...</p>
+      <h3>Bachelor of Chemical Engineering - Cairo University</h3>
+      <p>Thesis: Maximisation of LPG production...</p>
     </section>
+  </div>
 
+  <!-- Experience Content -->
+  <div class="tile-content" id="experience-content">
     <section id="experience">
-        <h2>Work Experience</h2>
-        <article>
-            <h3>University of Exeter - Research Fellow</h3>
-            <ul>
-                <li>Worked in the EPSRC £4.7 M proactive, interdisciplinary, inclusive research- and practice-driven Transforming the Foundation Industries Research and Innovation Hub (TransFIRe) Programme (UKRI Award No EP/V054627/1), playing a vital role in shaping the UK industry.</li>
-                <li>Collaborated with a consortium, encompassing 12 institutions and over 80 companies, most from industry, including various foundation industry partners (ceramics, cement, chemicals, glass, metals, and paper).</li>
-                <li>Led/co-led over ten industry-involved case studies, participating in important cross-sectoral case studies such as refractory recycling, circular economy for wind energy infrastructure, spent foundry sand, promoting sustainable waste management, creating industrial symbioses between foundries and new end-users across the foundation industries, and exploring alternative raw materials for concrete roof tiles and clay brick manufacturing.</li>
-                <li>Participated in various case studies with the industry (Trent Refractories, Parkinson-Spencer Refractories, the well-known Wienerberger Bricks Company, and others) connected to sustainability and working on developing sustainable recycling solutions for several industrial sectors by merging theoretical models with actual implementations and experimental studies.</li>
-                <li>Achieved our greatest outcome from the case study with Trent Refractories Co by enabling the bulk replacement of raw materials, resulting in significantly improved high-temperature performance of cement refractory castables and ultimately increasing cost savings by 20%.</li>
-                <li>Involved in short-term placements to Trent Refractories Ltd, UK and Wienerberger Bricks and Roof Tiles Co, UK to progress case studies.</li>
-                <li>Contributed to teaching Water Management in Developing Countries (ECMM162), Water Resources and Pollution Control (ECM3158), and Water and Environmental Systems (ECMM110) modules with Prof Fayyaz Memon.</li>
-                <li>Co-organised and facilitated numerous workshops, meetings, and foundation industry forums.</li>
-                <li>Developed the 2023 Advanced Materials Show award-winning powerful and universal thermodynamic simulation-guided recycling strategy, ThermoRecycliSt, that is applicable to practically all foundation industries that can efficiently maximise resource efficiency, minimise waste, and search for suitable alternative materials.</li>
-                <li>Continued co-supervising (co-supervised more than 10 undergraduate and graduate students working on water treatment and material synthesis projects at the University of Exeter).</li>
-                <li>Played a key role in managing the Ceramics, Catalysis, and Functional Materials Laboratory at the University of Exeter since 2018, acting as a deputy manager and overseeing daily research works, collaborative research initiatives, resource allocation, and material and consumable purchases.</li>
-            </ul>
-        </article>
-        <article>
-            <h3>Previous Roles</h3>
-            <h4>Oct 2018 – Oct 2021</h4>
-            <p>University of Exeter, Centre for Water Systems, Department of Engineering, College of Engineering, Mathematics and Physical Sciences, United Kingdom of Great Britain, and Northern Ireland</p>
-            <h5>Postdoctoral Research Associate</h5>
-            <ul>
-                <li>Worked on the 3-year India-UK Water Quality Award winning NERC-funded Fate and Management of Emerging Contaminants (FaME) project (the UK Natural Environment Research Council Award No NE/R003548/1) and led its work package.</li>
-                <li>Taught the Environmental Processes module (ECMM134) with Dr Seyed Sadr and Prof Fayyaz Memon, gave a series of lectures on our research project to students, and supervised students at both the undergraduate and postgraduate levels.</li>
-                <li>Developed innovative sustainable treatment solutions based on green graphene-based nano-adsorbents for the removal of emerging contaminants (pharmaceuticals) from wastewaters.</li>
-                <li>Synthesised novel ceramic boron nitride foam-supported highly porous graphene composites that proved effective in column studies with synthetic and actual waste waters.</li>
-                <li>Constructed the world's first pilot-scale graphene foam composite-filled adsorption filter that was sent to India for field demonstration.</li>
-                <li>Contributed to supervised students' achievements in their research projects, receiving the Institute of Civil Engineering Prize for 2020/1.</li>
-                <li>Co-organised the AQUA≈360 Conference (2021) at the University of Exeter (Organising Committee).</li>
-                <li>Engaged in board meetings of the Centre for Resilience in Environment, Water, and Waste (CREWW) at the University of Exeter in preparation for its launch in 2023.</li>
-            </ul>
-            <h4>Mar 2018 – Sept 2018</h4>
-            <p>Cairo University, Faculty of Engineering, Chemical Engineering Department, Egypt</p>
-            <h5>Assistant Professor (Lecturer) in Chemical Engineering</h5>
-            <ul>
-                <li>Promoted from Associate Lecturer.</li>
-                <li>Provided academic and career guidance to students through one-on-one consultations, advising on course selection, research projects, and career paths within the field of chemical engineering.</li>
-                <li>Actively participated in curriculum reviews, assessments, and accreditation processes, contributing to the enhancement of academic programmes and ensuring compliance with educational standards.</li>
-                <li>Contributed to departmental committees (such as curriculum committee and research committee) and actively participated in decision-making processes.</li>
-                <li>On research mission and leave afterwards till present (Undergoing application for associate professor promotion).</li>
-            </ul>
-            <h4>Oct 2017 – Dec 2017</h4>
-            <p>Kyushu University, Department of Earth System Science and Technology, Interdisciplinary Graduate School of Engineering Sciences (IGSES), Japan</p>
-            <h5>Researcher</h5>
-            <ul>
-                <li>Researched effective nanomaterial composites for multipurpose use.</li>
-                <li>Supervised four PhD students and two MSc students at the WEEL - Water and Environmental Engineering Laboratory (lab website accessed here).</li>
-                <li>Took part in different laboratory-based research areas, such as biogas production (green energy generation) and contaminant removal column studies pertaining to wastewater treatment.</li>
-                <li>Mentored all my lab colleagues to perform their lab experiments based on my acquired experience.</li>
-                <li>Co-organised the 1st, 2nd, and 3rd International Exchange and Innovation Conference on Engineering & Sciences (IEICES), Fukuoka, Japan each year since 2015.</li>
-            </ul>
-            <h4>Apr 2017 – Sept 2017</h4>
-            <p>Kyushu University, Department of Earth System Science and Technology, Interdisciplinary Graduate School of Engineering Sciences (IGSES), Japan</p>
-            <h5>Teaching Assistant</h5>
-            <ul>
-                <li>Helped students with their materials and environmental-related courses and modules, supporting their lab work, and facilitating various research issues.</li>
-                <li>Helped organise and lead practical sessions and seminars, advised students, graded homework and examinations, and provided advice and mentoring to them.</li>
-                <li>Worked with academics and other researchers to set up experiments, contributed to research projects, and maintained a productive research workflow.</li>
-            </ul>
-            <h4>Apr 2015 – Sept 2015</h4>
-            <p>Kyushu University, WEEL, Department of Earth System Science and Technology, Interdisciplinary Graduate School of Engineering Sciences (IGSES), Japan</p>
-            <h5>Research Assistant</h5>
-            <ul>
-                <li>Asked by my direct supervisor to work as an RA owing to my high grades and great research qualities.</li>
-                <li>Participated in supervising research works conducted by new MSc and PhD students.</li>
-            </ul>
-            <h4>Oct 2014 – Feb 2018</h4>
-            <p>Cairo University, Faculty of Engineering, Chemical Engineering Department, Egypt</p>
-            <h5>Associate Lecturer in Chemical Engineering</h5>
-            <ul>
-                <li>Promoted from Research and Teaching Assistant.</li>
-                <li>On leave from Sept 2014 to Dec 2017 to pursue my PhD and postdoctoral studies in Japan.</li>
-            </ul>
-            <h4>Jan 2011 – Sept 2014</h4>
-            <p>Cairo University, Faculty of Engineering, Chemical Engineering Department, Egypt</p>
-            <h5>Research and Teaching Assistant in Chemical Engineering</h5>
-            <ul>
-                <li>Responsible for instructing and mentoring students in a number of essential modules, such as Computational Chemical Engineering (for credit system students in 2011), Electrochemistry and Corrosion, Applied Heat Transfer, Thermodynamics, and Chemical and Environmental Engineering Laboratory.</li>
-                <li>Actively participated in departmental meetings, contributing to curriculum updates, resource planning, and academic decision-making processes.</li>
-                <li>Monitored and supervised students during summative examinations and took full part in administering midterm assessments to ensure adherence to academic integrity and examination protocols.</li>
-            </ul>
-        </article>
-    </section>
+      <h2>Work Experience</h2>
+      <article>
+        <h3>University of Exeter - Research Fellow</h3>
+        <ul>
+          <li>Worked in the EPSRC £4.7 M proactive, interdisciplinary, inclusive research- and practice-driven Transforming the Foundation Industries Research and Innovation Hub (TransFIRe) Programme (UKRI Award No EP/V054627/1), playing a vital role in shaping the UK industry.</li>
+          <li>Collaborated with a consortium, encompassing 12 institutions and over 80 companies, most from industry, including various foundation industry partners (ceramics, cement, chemicals, glass, metals, and paper).</li>
+          <li>Led/co-led over ten industry-involved case studies, participating in important cross-sectoral case studies such as refractory recycling, circular economy for wind energy infrastructure, spent foundry sand, promoting sustainable waste management, creating industrial symbioses between foundries and new end-users across the foundation industries, and exploring alternative raw materials for concrete roof tiles and clay brick manufacturing.</li>
+          <li>Participated in various case studies with the industry (Trent Refractories, Parkinson-Spencer Refractories, the well-known Wienerberger Bricks Company, and others) connected to sustainability and working on developing sustainable recycling solutions for several industrial sectors by merging theoretical models with actual implementations and experimental studies.</li>
+          <li>Achieved our greatest outcome from the case study with Trent Refractories Co by enabling the bulk replacement of raw materials, resulting in significantly improved high-temperature performance of cement refractory castables and ultimately increasing cost savings by 20%.</li>
+          <li>Involved in short-term placements to Trent Refractories Ltd, UK and Wienerberger Bricks and Roof Tiles Co, UK to progress case studies.</li>
+          <li>Contributed to teaching Water Management in Developing Countries (ECMM162), Water Resources and Pollution Control (ECM3158), and Water and Environmental Systems (ECMM110) modules with Prof Fayyaz Memon.</li>
+          <li>Co-organised and facilitated numerous workshops, meetings, and foundation industry forums.</li>
+          <li>Developed the 2023 Advanced Materials Show award-winning powerful and universal thermodynamic simulation-guided recycling strategy, ThermoRecycliSt, that is applicable to practically all foundation industries that can efficiently maximise resource efficiency, minimise waste, and search for suitable alternative materials.</li>
+          <li>Continued co-supervising (co-supervised more than 10 undergraduate and graduate students working on water treatment and material synthesis projects at the University of Exeter).</li>
+          <li>Played a key role in managing the Ceramics, Catalysis, and Functional Materials Laboratory at the University of Exeter since 2018, acting as a deputy manager and overseeing daily research works, collaborative research initiatives, resource allocation, and material and consumable purchases.</li>
+        </ul>
+      </article>
+      <article>
+        <h3>Previous Roles</h3>
+        <h4>Oct 2018 – Oct 2021</h4>
+        <p>University of Exeter, Centre for Water Systems, Department of Engineering, College of Engineering, Mathematics and Physical Sciences, United Kingdom of Great Britain, and Northern Ireland</p>
+        <h5>Postdoctoral Research Associate</h5>
+        <ul>
+          <li>Worked on the 3-year India-UK Water Quality Award winning NERC-funded Fate and Management of Emerging Contaminants (FaME) project (the UK Natural Environment Research Council Award No NE/R003548/1) and led its work package.</li>
+          <li>Taught the Environmental Processes module (ECMM134) with Dr Seyed Sadr and Prof Fayyaz Memon, gave a series of lectures on our research project to students, and supervised students at both the undergraduate and postgraduate levels.</li>
+          <li>Developed innovative sustainable treatment solutions based on green graphene-based nano-adsorbents for the removal of emerging contaminants (pharmaceuticals) from wastewaters.</li>
+          <li>Synthesised novel ceramic boron nitride foam-supported highly porous graphene composites that proved effective in column studies with synthetic and actual waste waters.</li>
+          <li>Constructed the world's first pilot-scale graphene foam composite-filled adsorption filter that was sent to India for field demonstration.</li>
+          <li>Contributed to supervised students' achievements in their research projects, receiving the Institute of Civil Engineering Prize for 2020/1.</li>
+          <li>Co-organised the AQUA≈360 Conference (2021) at the University of Exeter (Organising Committee).</li>
+          <li>Engaged in board meetings of the Centre for Resilience in Environment, Water, and Waste (CREWW) at the University of Exeter in preparation for its launch in 2023.</li>
+        </ul>
 
-   <section id="publications">
-    <h2>Published Articles in Peer-reviewed Journals</h2>
-    <h3>2023</h3>
-    <ol>
+        <h4>Mar 2018 – Sept 2018</h4>
+        <p>Cairo University, Faculty of Engineering, Chemical Engineering Department, Egypt</p>
+        <h5>Assistant Professor (Lecturer) in Chemical Engineering</h5>
+        <ul>
+          <li>Promoted from Associate Lecturer.</li>
+          <li>Provided academic and career guidance to students through one-on-one consultations, advising on course selection, research projects, and career paths within the field of chemical engineering.</li>
+          <li>Actively participated in curriculum reviews, assessments, and accreditation processes, contributing to the enhancement of academic programmes and ensuring compliance with educational standards.</li>
+          <li>Contributed to departmental committees (such as curriculum committee and research committee) and actively participated in decision-making processes.</li>
+          <li>On research mission and leave afterwards till present (Undergoing application for associate professor promotion).</li>
+        </ul>
+
+        <h4>Oct 2017 – Dec 2017</h4>
+        <p>Kyushu University, Department of Earth System Science and Technology, Interdisciplinary Graduate School of Engineering Sciences (IGSES), Japan</p>
+        <h5>Researcher</h5>
+        <ul>
+          <li>Researched effective nanomaterial composites for multipurpose use.</li>
+          <li>Supervised four PhD students and two MSc students at the WEEL - Water and Environmental Engineering Laboratory (lab website accessed here).</li>
+          <li>Took part in different laboratory-based research areas, such as biogas production (green energy generation) and contaminant removal column studies pertaining to wastewater treatment.</li>
+          <li>Mentored all my lab colleagues to perform their lab experiments based on my acquired experience.</li>
+          <li>Co-organised the 1st, 2nd, and 3rd International Exchange and Innovation Conference on Engineering & Sciences (IEICES), Fukuoka, Japan each year since 2015.</li>
+        </ul>
+
+        <h4>Apr 2017 – Sept 2017</h4>
+        <p>Kyushu University, Department of Earth System Science and Technology, Interdisciplinary Graduate School of Engineering Sciences (IGSES), Japan</p>
+        <h5>Teaching Assistant</h5>
+        <ul>
+          <li>Helped students with their materials and environmental-related courses and modules, supporting their lab work, and facilitating various research issues.</li>
+          <li>Helped organise and lead practical sessions and seminars, advised students, graded homework and examinations, and provided advice and mentoring to them.</li>
+          <li>Worked with academics and other researchers to set up experiments, contributed to research projects, and maintained a productive research workflow.</li>
+        </ul>
+
+        <h4>Apr 2015 – Sept 2015</h4>
+        <p>Kyushu University, WEEL, Department of Earth System Science and Technology, Interdisciplinary Graduate School of Engineering Sciences (IGSES), Japan</p>
+        <h5>Research Assistant</h5>
+        <ul>
+          <li>Asked by my direct supervisor to work as an RA owing to my high grades and great research qualities.</li>
+          <li>Participated in supervising research works conducted by new MSc and PhD students.</li>
+        </ul>
+
+        <h4>Oct 2014 – Feb 2018</h4>
+        <p>Cairo University, Faculty of Engineering, Chemical Engineering Department, Egypt</p>
+        <h5>Associate Lecturer in Chemical Engineering</h5>
+        <ul>
+          <li>Promoted from Research and Teaching Assistant.</li>
+          <li>On leave from Sept 2014 to Dec 2017 to pursue my PhD and postdoctoral studies in Japan.</li>
+        </ul>
+
+        <h4>Jan 2011 – Sept 2014</h4>
+        <p>Cairo University, Faculty of Engineering, Chemical Engineering Department, Egypt</p>
+        <h5>Research and Teaching Assistant in Chemical Engineering</h5>
+        <ul>
+          <li>Responsible for instructing and mentoring students in a number of essential modules, such as Computational Chemical Engineering (for credit system students in 2011), Electrochemistry and Corrosion, Applied Heat Transfer, Thermodynamics, and Chemical and Environmental Engineering Laboratory.</li>
+          <li>Actively participated in departmental meetings, contributing to curriculum updates, resource planning, and academic decision-making processes.</li>
+          <li>Monitored and supervised students during summative examinations and took full part in administering midterm assessments to ensure adherence to academic integrity and examination protocols.</li>
+        </ul>
+      </article>
+    </section>
+  </div>
+
+<!-- Publications Content -->
+<div class="tile-content" id="publications-content">
+    <section id="publications">
+      <h2>Published Articles in Peer-reviewed Journals</h2>
+      <h3>2023</h3>
+      <ol>
         <li>Joshi B., Khalil Ahmed M.E., Zhang S., Memon F.A., Zhuxian Yang, "Application of 2D MoS₂ Nanoflower for the Removal of Emerging Pollutants from Water," ACS Engineering Au (IF 6.2), Vol. 3, No. 6, pp. 461-476, September 2023. <a href="https://doi.org/10.1021/acsengineeringau.3c00032" target="_blank">https://doi.org/10.1021/acsengineeringau.3c00032</a></li>
         <li>Joshi B., Khalil Ahmed M.E., Zhang S., Memon F.A., "Investigating the Potential of Greener-Porous Graphene for the Treatment of Organic Pollutants." MDPI C — Journal of Carbon Research (IF 4.1), Vol. 9, No. 4, pp. 97, August 2023. <a href="https://doi.org/10.3390/c9040097" target="_blank">https://doi.org/10.3390/c9040097</a></li>
         <li>Khalil Ahmed M.E., Velentorf A.P.M., Ahmadina M., Zhang S., "Context Analysis for Transformative Change in the Ceramic Industry," MDPI Sustainability Journal (IF 3.9), Vol. 15, No. 16, pp. 1223, August 2023. <a href="https://doi.org/10.3390/su151612230" target="_blank">https://doi.org/10.3390/su151612230</a></li>
         <li>Khalil Ahmed M.E., Joshi B., Tabish T., Chang H., Memon F., Zhang S., "Near Green Synthesis of Porous Graphene from Graphite using Encapsulated Ferrate (VI) Oxidant," ACS Omega (IF 4.132), Vol. 8, No. 32, pp. 29674–29684, August 2023. <a href="https://pubs.acs.org/doi/10.1021/acsomega.3c03812" target="_blank">https://pubs.acs.org/doi/10.1021/acsomega.3c03812</a></li>
         <li>Chen Y., Han L., Ola O., Liu G., Wang N., Saadi Z., Neves A., Sabouni Tabari R., Thummavichai K., Khalil Ahmed M.E., Xia Y., Sun S., Zhu Y., "Multifunctional ultralight, recoverable, piezoresistive, and super thermal insulating SiC nanowire sponges," Journal of the American Ceramic Society (IF 4.186), Vol. 106, No. 2, pp. 1299-1308, Oct 2022. <a href="https://doi.org/10.1111/jace.18823" target="_blank">https://doi.org/10.1111/jace.18823</a></li>
-    <h3>2022</h3>
+      </ol>
+
+      <h3>2022</h3>
+      <ol start="6">
         <li>Pryce D., Alsharrah F., Khalil Ahmed M.E., Kapelan Z., Memon F.A., "Comparative Life-Cycle Cost Analysis of Alternative Technologies for the Removal of Emerging Contaminants from Urban Wastewater," Water (IF 3.4), Vol. 14, pp. 1919, June 2022. <a href="https://doi.org/10.3390/w14121919" target="_blank">https://doi.org/10.3390/w14121919</a></li>
         <li>Khalil Ahmed M.E., Han L., Maamoun I., Tabish T.A., Chen Y., Eljamal O., Memon F. A., "Novel Graphene‐Based Foam Composite as a Highly Reactive Filter Medium for the Efficient Removal of Gemfibrozil from (Waste) Water," Advanced Sustainable Systems (IF 7.1), Vol. 6, No. 8, pp. 2200016, May 2022. <a href="https://doi.org/10.1002/adsu.202200016" target="_blank">https://doi.org/10.1002/adsu.202200016</a></li>
         <li>Pryce, D., Khalil, Ahmed M.E., & Memon, F. A., "Investigating the environmental costs of utilizing graphene-based adsorbents and pulsed power oxidation for the removal of emerging contaminants from urban wastewater," Science of The Total Environment (IF 9.8), Vol. 817, pp. 152985, April 2022. <a href="https://doi.org/10.1016/j.scitotenv.2022.152985" target="_blank">https://doi.org/10.1016/j.scitotenv.2022.152985</a></li>
         <li>Eljamal O., Eljamal R., Maamoun I., Khalil Ahmed M.E., Shubair T., Falyouna O., Sugihara Y., "Efficient treatment of ammonia-nitrogen contaminated waters by nano zero-valent iron/zeolite composite," Chemosphere (IF 8.8), Vol. 287, Part 1, 2022, pp. 131990, Jan. 2022. <a href="https://doi.org/10.1016/j.chemosphere.2021.131990" target="_blank">https://doi.org/10.1016/j.chemosphere.2021.131990</a></li>
         <li>Hussain M.Z., Yang Z., Khalil Ahmed M.E., Hussain Z., Awan S.U., Jia Q., Fischer R.A., Zhu Y., Xia Y., "Metal-organic framework derived multi-functionalized and co-doped TiO2/C nanocomposites for excellent visible-light photocatalysis," Journal of Materials Science & Technology (JMST.org, IF 10.9), Vol 101, pp. 49-59, Feb. 2022. <a href="https://doi.org/10.1016/j.jmst.2021.05.052" target="_blank">https://doi.org/10.1016/j.jmst.2021.05.052</a></li>
-    <h3>2021</h3>
+      </ol>
+
+      <h3>2021</h3>
+      <ol start="11">
         <li>Khalil Ahmed M.E., Han L., Wang J.,Chen Y., Li F., Chang H., Zhang H., Liu X., Li G., Jia Q., Zhang S., "Graphene-boron nitride composite aerogel: A high efficiency adsorbent for ciprofloxacin removal from water," Separation and Purification Technology (IF 8.6), Vol. 278, pp. 119605, December 2021. <a href="https://doi.org/10.1016/j.seppur.2021.119605" target="_blank">https://doi.org/10.1016/j.seppur.2021.119605</a></li>
         <li>Khalil Ahmed M.E., Memon F., Tabish T., Fenton B., Salmon D., Zhang S., Butler D., "Performance Evaluation of Porous Graphene as Filter Media for the Removal of Pharmaceutical/Emerging Contaminants from Water and Wastewater," MDPI Nanomaterials (IF 5.719,), Vol. 11, No. 1, pp. 79, Jan. 2021. <a href="https://doi.org/10.3390/nano11010079" target="_blank">https://doi.org/10.3390/nano11010079</a></li>
-    <h3>2020</h3>
-        <li>Khalil Ahmed M.E., Memon F., Tabish T., Salmon D., Zhang S., Butler D., "Nanostructured graphene for efficient removal of emerging contaminants (pharmaceuticals) from water," Chemical Engineering Journal (IF 15.1), Vol. 398, pp. 125440, Oct., 2020. <a href="https://doi.org/10.1016/j.cej.2020.125440" target="_blank">https://doi.org/10.1016/j.cej.2020.125440</a></li>
-    <h3>2019</h3>
-              <li>Takami, S., Eljamal, O., Khalil Ahmed M.E., Eljamal R. and Matsunaga N., "Development of continuous system based on nanoscale zero valent iron particles for phosphorus removal," Journal of Japan Society of Civil Engineers (JSCE), Vol. 7, No.1, pp.30-42, July, 2019. <a href="https://doi.org/10.2208/journalofjsce.7.1_30" target="_blank">https://doi.org/10.2208/journalofjsce.7.1_30</a></li>
-     <h3>2018</h3>
-            <li>Amen, T., Eljamal O., Khalil Ahmed M.E., Matsunaga, N., "Evaluation of sulfate-containing sludge stabilization and the alleviation of methanogenesis inhibition at mesophilic temperature," Journal of Water Process Engineering (IF 7), Vol. 25, pp. 212-221, Oct., 2018. <a href="https://doi.org/10.1016/j.jwpe.2018.08.004" target="_blank">https://doi.org/10.1016/j.jwpe.2018.08.004</a></li>
-            <li>Amen, T., Eljamal O., Khalil Ahmed M.E., Matsunaga, N., "Methane Yield Enhancement by the Addition of New Novel of Iron and Copper-Iron Bimetallic Nanoparticles," Chemical Engineering and Processing: Process Intensification Journal (IF 4.3), Vol. 130, pp. 253-261, Aug., 2018. <a href="https://doi.org/10.1016/j.cep.2018.06.020" target="_blank">https://doi.org/10.1016/j.cep.2018.06.020</a></li>
-            <li>Shubair T., Eljamal O., Khalil Ahmed M.E., Tahara A. and Matsunaga N., "Novel application of nanoscale zero valent iron and bimetallic nano-Fe/Cu particles for the treatment of cesium contaminated water," Journal of Environmental Chemical Engineering (IF 7.7), Vol. 6, No. 4, pp. 4253-4264, Aug., 2018. <a href="https://doi.org/10.1016/j.jece.2018.06.015" target="_blank">https://doi.org/10.1016/j.jece.2018.06.015</a></li>
-            <li>Eljamal R., Eljamal O., Khalil Ahmed M.E., Matsunaga N., "Improvement of the Chemical Synthesis Efficiency of Nano-scale Zero-valent Iron Particles," Journal of Environmental Chemical Engineering (IF 7.7), Vol. 6 No. 4, pp. 4727-4735, Aug., 2018. <a href="https://doi.org/10.1016/j.jece.2018.06.069" target="_blank">https://doi.org/10.1016/j.jece.2018.06.069</a></li>
-            <li>Khalil Ahmed M.E., Eljamal O., Amen T., Sugihara Y. and Matsunaga N., "Scrutiny of Interference Effect of Ions and Organic Matters on Water Treatment Using Supported Nanoscale Zero-valent Iron," Environmental Earth Sciences (IF 3.1), Vol. 77, No. 13, pp. 489, July, 2018. <a href="https://link.springer.com/article/10.1007/s12665-018-7661-6" target="_blank">https://link.springer.com/article/10.1007/s12665-018-7661-6</a></li>
-            <li>Maamoun, I., Eljamal O., Khalil Ahmed M.E., Matsunaga, N., "Phosphate Removal Through Nano-Zero-Valent Iron Permeable Reactive Barrier; Column Experiment and Reactive Solute Transport Modeling," Transport in Porous Media (IF 2.9), pp. 1-18, July, 2018. <a href="https://link.springer.com/article/10.1007/s11242-018-1124-0" target="_blank">https://link.springer.com/article/10.1007/s11242-018-1124-0</a></li>
-            <li>Amen T., Eljamal O., Khalil Ahmed M.E., Sugihara Y., Matsunaga N., "Wastewater degradation by iron/copper nanoparticles and the microorganism growth rate," Journal of Environmental Sciences (IF 6.9), Vol. 74, pp. 19-31, December 2018. <a href="https://doi.org/10.1016/j.jes.2018.01.028" target="_blank">https://doi.org/10.1016/j.jes.2018.01.028</a></li>
-            <li>Khalil Ahmed M.E., Eljamal O., Saha B.B., Matsunaga N., "Performance of Nano-scale Zero-valent Iron for Nitrate Reduction in Aqueous Solution Using a Laboratory-scale Continuous-flow System," Chemosphere (IF 8.8), Vol. 197, pp. 502-512, Apr., 2018. <a href="https://doi.org/10.1016/j.chemosphere.2018.01.084" target="_blank">https://doi.org/10.1016/j.chemosphere.2018.01.084</a></li>
-            <li>Shubair T., Eljamal O., Khalil Ahmed M.E., Matsunaga, N., "Multilayer system of nanoscale zero valent iron and Nano-Fe/Cu particles for nitrate removal in porous media," Separation and Purification Technology (IF 8.6), Vol. 193, pp. 242-254, Mar., 2018. <a href="https://doi.org/10.1016/j.seppur.2017.10.069" target="_blank">https://doi.org/10.1016/j.seppur.2017.10.069</a></li>
-        <h3>2017</h3>
-            <li>Amen, T., Eljamal O., Khalil Ahmed M.E., Matsunaga, N., "Biochemical methane potential enhancement of domestic sludge digestion by adding pristine iron nanoparticles and iron nanoparticles coated zeolite composition," Journal of Environmental Chemical Engineering (IF 7.7), Vol. 5, No. 5, pp. 5002-5013, Oct., 2017. <a href="https://doi.org/10.1016/j.jece.2017.09.030" target="_blank">https://doi.org/10.1016/j.jece.2017.09.030</a></li>
-            <li>Khalil Ahmed M.E., Eljamal O., Eljamal R., Matsunaga N., "Treatment and regeneration of nano-scale zero-valent iron spent in water remediation," Evergreen - Joint Journal of Novel Carbon Resource Sciences & Green Asia Strategy (Citescore 3.9), Vol. 4, No. 1, pp. 21-28, Mar., 2017. <a href="https://doi.org/10.5109/1808449" target="_blank">https://doi.org/10.5109/1808449</a></li>
-            <li>Khalil Ahmed M.E., Eljamal O., Amen T., Sugihara Y., Matsunaga N., "Optimized nano-scale zero-valent iron supported on treated activated carbon for enhanced nitrate and phosphate removal from water," Chemical Engineering Journal (IF 15.1), Vol. 309, pp. 349-365, ‏Feb., 2017. <a href="https://doi.org/10.1016/j.cej.2016.10.080" target="_blank">https://doi.org/10.1016/j.cej.2016.10.080</a></li>
-            <li>Eljamal O., Khalil Ahmed M.E., Matsunaga N., "Experimental and Modeling Column Study of Phosphorus Removal by Permeable Reactive Materials," International Journal of Environmental & Agriculture Research (IF 5.59), Vol. 3, No. 1, pp. 62-70, Jan., 2017. 
-                <a href="https://ijoear.com/assets/articles_menuscripts/file/IJOEAR-JAN-2017-12.pdf" target="_blank" style="text-decoration: none;">
-                    <button style="background-color: #4CAF50; color: white; border: none; padding: 6px 12px; text-align: center; text-decoration: none; display: inline-block; font-size: 12px; margin-top: 5px; cursor: pointer; border-radius: 3px;">
-                        Download PDF
-                    </button>
-                </a>
-            </li>
-                    <h3>2016</h3>
-            <li>Eljamal O., Khalil Ahmed M.E., Sugihara Y., Matsunaga N., "Phosphorus removal from aqueous solution by nanoscale zero valent iron in the presence of copper chloride," Chemical Engineering Journal (IF 15.1), Vol. 293, pp. 225-231, Jun., 2016. <a href="https://doi.org/10.1016/j.cej.2016.02.052" target="_blank">https://doi.org/10.1016/j.cej.2016.02.052</a></li>
-            <li>Khalil Ahmed M.E., Eljamal O., Jribi S., Matsunaga N., "Promoting nitrate reduction kinetics by nanoscale zero valent iron in water via copper salt addition," Chemical Engineering Journal (IF 15.1), Vol. 287, pp. 367-380, Mar., 2016. <a href="https://doi.org/10.1016/j.cej.2015.11.038" target="_blank">https://doi.org/10.1016/j.cej.2015.11.038</a></li>
-        <h3>2015</h3>
-            <li>Khalil Ahmed M.E., Fateen Seif-Eddeen K., Adrián Bonilla-Petriciolet, "MAKHA—A New Hybrid Swarm Intelligence Global Optimization Algorithm," MDPI Algorithms (IF 2.3), Vol. 8, No. 2, pp. 336-365, Jun., 2015. <a href="https://doi.org/10.3390/a8020336" target="_blank">https://doi.org/10.3390/a8020336</a></li>
-            <li>Khalil Ahmed M.E., Fateen Seif-Eddeen K., Adrian Bonilla-Petriciolet, "Gravitational search, monkey, and krill herd swarm algorithms for phase stability, phase equilibrium, and chemical equilibrium problems," Chemical Engineering Communications (IF 2.5), Vol. 203, No. 3, pp. 389-406, Feb., 2015. <a href="https://doi.org/10.1080/00986445.2015.1004666" target="_blank">https://doi.org/10.1080/00986445.2015.1004666</a></li>
-            </ol>
-    </section>
+      </ol>
 
-    <footer>
-        <p>Connect with me on 
-            <a href="https://www.linkedin.com/in/ahmed-khalil-6530bb20a/" target="_blank">
-                <img src="images/linkedin.png" alt="LinkedIn" width="30" height="30">
-            </a>
-            <a href="https://www.researchgate.net/profile/Ahmed-Khalil-40" target="_blank">
-                <img src="images/researchgate.png" alt="ResearchGate" width="30" height="30">
-            </a>
-        </p>
-    </footer>
+      <h3>2020</h3>
+      <ol start="13">
+        <li>Khalil Ahmed M.E., Memon F., Tabish T., Salmon D., Zhang S., Butler D., "Nanostructured graphene for efficient removal of emerging contaminants (pharmaceuticals) from water," Chemical Engineering Journal (IF 15.1), Vol. 398, pp. 125440, Oct., 2020. <a href="https://doi.org/10.1016/j.cej.2020.125440" target="_blank">https://doi.org/10.1016/j.cej.2020.125440</a></li>
+      </ol>
+
+      <h3>2019</h3>
+      <ol start="14">
+        <li>Takami, S., Eljamal, O., Khalil Ahmed M.E., Eljamal R. and Matsunaga N., "Development of continuous system based on nanoscale zero valent iron particles for phosphorus removal," Journal of Japan Society of Civil Engineers (JSCE), Vol. 7, No.1, pp.30-42, July, 2019. <a href="https://doi.org/10.2208/journalofjsce.7.1_30" target="_blank">https://doi.org/10.2208/journalofjsce.7.1_30</a></li>
+      </ol>
+
+      <h3>2018</h3>
+      <ol start="15">
+        <li>Amen, T., Eljamal O., Khalil Ahmed M.E., Matsunaga, N., "Evaluation of sulfate-containing sludge stabilization and the alleviation of methanogenesis inhibition at mesophilic temperature," Journal of Water Process Engineering (IF 7), Vol. 25, pp. 212-221, Oct., 2018. <a href="https://doi.org/10.1016/j.jwpe.2018.08.004" target="_blank">https://doi.org/10.1016/j.jwpe.2018.08.004</a></li>
+        <li>Amen, T., Eljamal O., Khalil Ahmed M.E., Matsunaga, N., "Methane Yield Enhancement by the Addition of New Novel of Iron and Copper-Iron Bimetallic Nanoparticles," Chemical Engineering and Processing: Process Intensification Journal (IF 4.3), Vol. 130, pp. 253-261, Aug., 2018. <a href="https://doi.org/10.1016/j.cep.2018.06.020" target="_blank">https://doi.org/10.1016/j.cep.2018.06.020</a></li>
+        <li>Shubair T., Eljamal O., Khalil Ahmed M.E., Tahara A. and Matsunaga N., "Novel application of nanoscale zero valent iron and bimetallic nano-Fe/Cu particles for the treatment of cesium contaminated water," Journal of Environmental Chemical Engineering (IF 7.7), Vol. 6, No. 4, pp. 4253-4264, Aug., 2018. <a href="https://doi.org/10.1016/j.jece.2018.06.015" target="_blank">https://doi.org/10.1016/j.jece.2018.06.015</a></li>
+        <li>Eljamal R., Eljamal O., Khalil Ahmed M.E., Matsunaga N., "Improvement of the Chemical Synthesis Efficiency of Nano-scale Zero-valent Iron Particles," Journal of Environmental Chemical Engineering (IF 7.7), Vol. 6 No. 4, pp. 4727-4735, Aug., 2018. <a href="https://doi.org/10.1016/j.jece.2018.06.069" target="_blank">https://doi.org/10.1016/j.jece.2018.06.069</a></li>
+        <li>Khalil Ahmed M.E., Eljamal O., Amen T., Sugihara Y. and Matsunaga N., "Scrutiny of Interference Effect of Ions and Organic Matters on Water Treatment Using Supported Nanoscale Zero-valent Iron," Environmental Earth Sciences (IF 3.1), Vol. 77, No. 13, pp. 489, July, 2018. <a href="https://link.springer.com/article/10.1007/s12665-018-7661-6" target="_blank">https://link.springer.com/article/10.1007/s12665-018-7661-6</a></li>
+        <li>Maamoun, I., Eljamal O., Khalil Ahmed M.E., Matsunaga, N., "Phosphate Removal Through Nano-Zero-Valent Iron Permeable Reactive Barrier; Column Experiment and Reactive Solute Transport Modeling," Transport in Porous Media (IF 2.9), pp. 1-18, July, 2018. <a href="https://link.springer.com/article/10.1007/s11242-018-1124-0" target="_blank">https://link.springer.com/article/10.1007/s11242-018-1124-0</a></li>
+        <li>Amen T., Eljamal O., Khalil Ahmed M.E., Sugihara Y., Matsunaga N., "Wastewater degradation by iron/copper nanoparticles and the microorganism growth rate," Journal of Environmental Sciences (IF 6.9), Vol. 74, pp. 19-31, December 2018. <a href="https://doi.org/10.1016/j.jes.2018.01.028" target="_blank">https://doi.org/10.1016/j.jes.2018.01.028</a></li>
+        <li>Khalil Ahmed M.E., Eljamal O., Saha B.B., Matsunaga N., "Performance of Nano-scale Zero-valent Iron for Nitrate Reduction in Aqueous Solution Using a Laboratory-scale Continuous-flow System," Chemosphere (IF 8.8), Vol. 197, pp. 502-512, Apr., 2018. <a href="https://doi.org/10.1016/j.chemosphere.2018.01.084" target="_blank">https://doi.org/10.1016/j.chemosphere.2018.01.084</a></li>
+        <li>Shubair T., Eljamal O., Khalil Ahmed M.E., Matsunaga, N., "Multilayer system of nanoscale zero valent iron and Nano-Fe/Cu particles for nitrate removal in porous media," Separation and Purification Technology (IF 8.6), Vol. 193, pp. 242-254, Mar., 2018. <a href="https://doi.org/10.1016/j.seppur.2017.10.069" target="_blank">https://doi.org/10.1016/j.seppur.2017.10.069</a></li>
+      </ol>
+
+      <h3>2017</h3>
+      <ol start="24">
+        <li>Amen, T., Eljamal O., Khalil Ahmed M.E., Matsunaga, N., "Biochemical methane potential enhancement of domestic sludge digestion by adding pristine iron nanoparticles and iron nanoparticles coated zeolite composition," Journal of Environmental Chemical Engineering (IF 7.7), Vol. 5, No. 5, pp. 5002-5013, Oct., 2017. <a href="https://doi.org/10.1016/j.jece.2017.09.030" target="_blank">https://doi.org/10.1016/j.jece.2017.09.030</a></li>
+        <li>Khalil Ahmed M.E., Eljamal O., Eljamal R., Matsunaga N., "Treatment and regeneration of nano-scale zero-valent iron spent in water remediation," Evergreen - Joint Journal of Novel Carbon Resource Sciences & Green Asia Strategy (Citescore 3.9), Vol. 4, No. 1, pp. 21-28, Mar., 2017. <a href="https://doi.org/10.5109/1808449" target="_blank">https://doi.org/10.5109/1808449</a></li>
+        <li>Khalil Ahmed M.E., Eljamal O., Amen T., Sugihara Y., Matsunaga N., "Optimized nano-scale zero-valent iron supported on treated activated carbon for enhanced nitrate and phosphate removal from water," Chemical Engineering Journal (IF 15.1), Vol. 309, pp. 349-365, ‏Feb., 2017. <a href="https://doi.org/10.1016/j.cej.2016.10.080" target="_blank">https://doi.org/10.1016/j.cej.2016.10.080</a></li>
+        <li>Eljamal O., Khalil Ahmed M.E., Matsunaga N., "Experimental and Modeling Column Study of Phosphorus Removal by Permeable Reactive Materials," International Journal of Environmental & Agriculture Research (IF 5.59), Vol. 3, No. 1, pp. 62-70, Jan., 2017.
+          <a href="https://ijoear.com/assets/articles_menuscripts/file/IJOEAR-JAN-2017-12.pdf" target="_blank" style="text-decoration: none;">
+            <button style="background-color: #4CAF50; color: white; border: none; padding: 6px 12px; text-align: center; text-decoration: none; display: inline-block; font-size: 12px; margin-top: 5px; cursor: pointer; border-radius: 3px;">
+              Download PDF
+            </button>
+          </a>
+        </li>
+      </ol>
+
+      <h3>2016</h3>
+      <ol start="28">
+        <li>Eljamal O., Khalil Ahmed M.E., Sugihara Y., Matsunaga N., "Phosphorus removal from aqueous solution by nanoscale zero valent iron in the presence of copper chloride," Chemical Engineering Journal (IF 15.1), Vol. 293, pp. 225-231, Jun., 2016. <a href="https://doi.org/10.1016/j.cej.2016.02.052" target="_blank">https://doi.org/10.1016/j.cej.2016.02.052</a></li>
+        <li>Khalil Ahmed M.E., Eljamal O., Jribi S., Matsunaga N., "Promoting nitrate reduction kinetics by nanoscale zero valent iron in water via copper salt addition," Chemical Engineering Journal (IF 15.1), Vol. 287, pp. 367-380, Mar., 2016. <a href="https://doi.org/10.1016/j.cej.2015.11.038" target="_blank">https://doi.org/10.1016/j.cej.2015.11.038</a></li>
+      </ol>
+
+      <h3>2015</h3>
+      <ol start="30">
+        <li>Khalil Ahmed M.E., Fateen Seif-Eddeen K., Adrián Bonilla-Petriciolet, "MAKHA—A New Hybrid Swarm Intelligence Global Optimization Algorithm," MDPI Algorithms (IF 2.3), Vol. 8, No. 2, pp. 336-365, Jun., 2015. <a href="https://doi.org/10.3390/a8020336" target="_blank">https://doi.org/10.3390/a8020336</a></li>
+        <li>Khalil Ahmed M.E., Fateen Seif-Eddeen K., Adrian Bonilla-Petriciolet, "Gravitational search, monkey, and krill herd swarm algorithms for phase stability, phase equilibrium, and chemical equilibrium problems," Chemical Engineering Communications (IF 2.5), Vol. 203, No. 3, pp. 389-406, Feb., 2015. <a href="https://doi.org/10.1080/00986445.2015.1004666" target="_blank">https://doi.org/10.1080/00986445.2015.1004666</a></li>
+      </ol>
+    </section>
+  </div>
+
+  <!-- Photos Gallery Content (tile is empty for now) -->
+  <div class="tile-content" id="photos-gallery-content">
+    <section id="photos">
+      <h2>Photos Gallery</h2>
+      <!-- Big photo displayed (size reduced to half) -->
+      <img src="images/Japanese Ahmed Samurai.jpg"
+           alt="Japanese Ahmed Samurai"
+           style="display: block; margin: 0 auto; width: 20%; max-width: 800px; height: auto;" />
+      <p>This Photos Gallery will be expanded with more images in the future.</p>
+    </section>
+  </div>
+
+  <!-- Slideshow placed AFTER all tile-contents so it appears below everything -->
+  <div class="slideshow-container">
+    <img id="slideshow-img" src="" alt="Slideshow Image">
+    <div id="slideshow-caption"></div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>Connect with me on
+      <a href="https://www.linkedin.com/in/ahmed-khalil-6530bb20a/" target="_blank">
+        <img src="images/linkedin.png" alt="LinkedIn" width="30" height="30">
+      </a>
+      <a href="https://www.researchgate.net/profile/Ahmed-Khalil-40" target="_blank">
+        <img src="images/researchgate.png" alt="ResearchGate" width="30" height="30">
+      </a>
+    </p>
+  </footer>
+
+  <!-- JavaScript for tile toggling & slideshow with fade transition -->
+  <script>
+    // Show/hide contact info
+    function showContact(type) {
+      if (type === 'email') {
+        alert("Email: A.M.E.Khalil.PhDENG@gmail.com");
+      } else if (type === 'phone') {
+        alert("Phone: +44 (0) 7444040804");
+      }
+    }
+
+    // Toggling tile logic
+    const tiles = document.querySelectorAll('.tile');
+    tiles.forEach(tile => {
+      tile.addEventListener('click', function() {
+        const allContents = document.querySelectorAll('.tile-content');
+        const targetId = this.getAttribute('data-target');
+        const targetElement = document.getElementById(targetId);
+
+        // Toggle logic
+        if (targetElement.style.display === 'block') {
+          targetElement.style.display = 'none';
+        } else {
+          allContents.forEach(content => {
+            content.style.display = 'none';
+          });
+          targetElement.style.display = 'block';
+        }
+      });
+    });
+
+    // Slideshow images
+    const slideshowImages = [
+      "images/PhD Graduation at Kyushu University Autumn 2017.jpg",
+      "images/FaME Project 2021.jpg",
+      "images/Collaboration with Industry 2023.jpg",
+      "images/Wienerberger 2023.jpg",
+      "images/Materials Show First Prize Award 2023.jpg",
+      "images/Transforming Foundation Industries Network+ Conference - Sheffield 2024.jpg",
+      "images/TransFIRe Consortium 2024.jpg"
+    ];
+
+    const slideshowCaptions = [
+      "PhD Graduation at Kyushu University Autumn 2017",
+      "FaME Project 2021",
+      "Collaboration with Industry 2023",
+      "Wienerberger 2023",
+      "Materials Show First Prize Award 2023",
+      "Transforming Foundation Industries Network+ Conference - Sheffield 2024",
+      "TransFIRe Consortium 2024"
+    ];
+
+    let currentIndex = 0;
+    const slideshowImg = document.getElementById('slideshow-img');
+    const slideshowCaption = document.getElementById('slideshow-caption');
+
+    // Fade in/out function
+    function showSlide(index) {
+      // Fade out
+      slideshowImg.style.opacity = '0';
+
+      // After fade-out completes (1s per CSS), update image & fade in
+      setTimeout(() => {
+        slideshowImg.src = slideshowImages[index];
+        slideshowCaption.textContent = slideshowCaptions[index];
+        // Fade in
+        slideshowImg.style.opacity = '1';
+      }, 1000); // match the CSS transition time
+    }
+
+    // Show the initial image
+    showSlide(currentIndex);
+
+    // Cycle every 5s
+    setInterval(() => {
+      currentIndex++;
+      if (currentIndex >= slideshowImages.length) {
+        currentIndex = 0;
+      }
+      showSlide(currentIndex);
+    }, 5000);
+  </script>
 </body>
 </html>
