@@ -89,7 +89,7 @@
       align-items: center;
       margin: 20px;
       flex-wrap: wrap; /* In case the screen is narrow, tiles will wrap to next line */
-      gap: 10px;       /* Space between tiles if wrapping occurs */
+      gap: 5px;       /* Space between tiles if wrapping occurs */
     }
 
     /* Individual Tile Style */
@@ -239,6 +239,11 @@
       <h2>Work Experience</h2>
       <div class="tooltip">Experience info</div>
     </div>
+    <!-- New Tile for Research Interests and Projects -->
+    <div class="tile" data-target="research-content">
+      <h2>Research Interests</h2>
+      <div class="tooltip">Research focus</div>
+    </div>
     <div class="tile" data-target="publications-content">
       <h2>Publications</h2>
       <div class="tooltip">Publications info</div>
@@ -286,16 +291,45 @@
     </section>
   </div>
 
-  <!-- Education Content -->
+  <!-- Education Content (REPLACED with the more detailed code from snippet #1) -->
   <div class="tile-content" id="education-content">
     <section id="education">
       <h2>Education</h2>
-      <h3>PhD in Chemical and Environmental Engineering - Kyushu University</h3>
-      <p>Thesis: Promoting the Reactivity of Nano-scale Zero-valent Iron for Water Treatment...</p>
-      <h3>MSc in Chemical Engineering - Cairo University</h3>
-      <p>Thesis: Applications and Development of Stochastic Global Optimization Methods...</p>
-      <h3>Bachelor of Chemical Engineering - Cairo University</h3>
-      <p>Thesis: Maximisation of LPG production...</p>
+      <!-- From the snippet you provided (PhD, MSc, BSc), unaltered -->
+      <h3>PhD in Chemical and Environmental Engineering</h3>
+      <p><strong>Kyushu University, Japan</strong></p>
+      <p><em>Department of Earth System Science and Technology, Interdisciplinary Graduate School of Engineering Sciences (IGSES)</em></p>
+      <p>2014 – 2017 | Ranking: Top Seven Universities in Japan</p>
+      <p>Overall Grade: 1st, GPA: 4.0/4.0</p>
+      <p><em>Funded by:</em> Monbukagakusho (MEXT), Japanese Government Prestigious Doctoral Scholarship</p>
+      <p><strong>Thesis Title:</strong> Promoting the Reactivity of Nano-scale Zero-valent Iron for Water Treatment: Mechanisms and Application</p>
+      <p><strong>Supervisor:</strong> Professor Osama Eljamal | <strong>Supporter:</strong> Professor Nobuhiro Matsunaga</p>
+      <p><strong>Thesis Overview:</strong> This research explored the development of nanoscale zero-valent iron (nZVI) composites to enhance water treatment efficiency and stability. The work involved surface modifications and carrier support, improving nitrate and phosphate removal through the addition of distinctive metal ions. A novel composite showed increased reactivity, material regeneration, and successful application in a laboratory-scale continuous flow system. 
+        <a href="https://drive.google.com/drive/folders/1kykpkl6ZT9v47l8JcAqh1J5VWSG3T_gc?usp=sharing" target="_blank">More information here</a>.
+      </p>
+
+      <h3>MSc in Chemical Engineering</h3>
+      <p><strong>Cairo University, Egypt</strong></p>
+      <p><em>Faculty of Engineering, Chemical Engineering Department</em></p>
+      <p>2012 – 2014 | Ranking: Top University in Egypt</p>
+      <p>Overall Grade: 1st, Distinction, GPA: 4.0/4.0</p>
+      <p><em>Funded by:</em> Cairo University</p>
+      <p><strong>Thesis Title:</strong> Applications and Development of Stochastic Global Optimization Methods for Thermodynamic Problems</p>
+      <p><strong>Supervisors:</strong> MIT PhD and MSc holder, Professor Seif-Eddeen Khalid Fateen, Professor Mai Kamal Fouad</p>
+      <p><strong>Thesis Overview:</strong> This project addressed phase stability and equilibrium in reactive and non-reactive thermodynamic systems using advanced stochastic swarm algorithms. Three algorithms—Monkey Algorithm (MA), Gravitational Search Algorithm (GSA), and Krill Herd Algorithm (KHA)—were evaluated, with KHA emerging as the most reliable. A hybrid algorithm (MAKHA), combining MA and KHA elements, demonstrated superior performance in solving complex thermodynamic benchmarks. This innovative approach highlighted the potential of MAKHA for process engineering design. 
+        <a href="https://drive.google.com/drive/folders/13bRjlyWEFQj1K1kvwh7IqIn08mYFGrv3?usp=sharing" target="_blank">More information here</a>.
+      </p>
+
+      <h3>Bachelor of Chemical Engineering</h3>
+      <p><strong>Cairo University, Egypt</strong></p>
+      <p><em>Faculty of Engineering, Chemical Engineering Department</em></p>
+      <p>2005 – 2010</p>
+      <p>Overall Grade: Distinction with Honours, GPA: 3.9/4.0</p>
+      <p><strong>Graduation Project Title:</strong> Maximisation of LPG Production</p>
+      <p><strong>Supervisor:</strong> Professor Hamdy Abd El-Aziz Moustafa</p>
+      <p><strong>Project Overview:</strong> Focused on resolving hydrate formation issues and increasing LPG (Liquefied Petroleum Gas) recovery at the United Gas Derivative Company (UGDC) in Port Said, Egypt. The project involved advanced simulations using Aspen HYSYS to optimise natural gas separation, prevent hydrate formation, and maximise production efficiency. The cold box and cryogenic equipment, including plate-fin heat exchangers, were key to this success, demonstrating significant improvements in LPG production processes. 
+        <a href="https://docs.google.com/document/d/1GFJF_KeRt_erGtPSFENsOWrmqzC4hFNY/edit?usp=sharing&ouid=117706613399155463093&rtpof=true&sd=true" target="_blank">More information here</a>.
+      </p>
     </section>
   </div>
 
@@ -304,7 +338,9 @@
     <section id="experience">
       <h2>Work Experience</h2>
       <article>
-        <h3>University of Exeter - Research Fellow</h3>
+        <h3>Research Fellow</h3>
+        <p>University of Exeter, Department of Engineering, Faculty of Environment, Science, and Economy, UK</p>
+        <h4 style="font-size: 0.9em;">Nov 2021 – Sept 2024</h4>
         <ul>
           <li>Worked in the EPSRC £4.7 M proactive, interdisciplinary, inclusive research- and practice-driven Transforming the Foundation Industries Research and Innovation Hub (TransFIRe) Programme (UKRI Award No EP/V054627/1), playing a vital role in shaping the UK industry.</li>
           <li>Collaborated with a consortium, encompassing 12 institutions and over 80 companies, most from industry, including various foundation industry partners (ceramics, cement, chemicals, glass, metals, and paper).</li>
@@ -320,11 +356,10 @@
         </ul>
       </article>
       <article>
-        <h3>Previous Roles</h3>
-        <h4>Oct 2018 – Oct 2021</h4>
-        <p>University of Exeter, Centre for Water Systems, Department of Engineering, College of Engineering, Mathematics and Physical Sciences, United Kingdom of Great Britain, and Northern Ireland</p>
-        <h5>Postdoctoral Research Associate</h5>
-        <ul>
+        <h3>Postdoctoral Research Associate</h3>
+        <p>University of Exeter, Centre for Water Systems, Department of Engineering, College of Engineering, Mathematics and Physical Sciences, UK</p>
+        <h4 style="font-size: 0.9em;">Oct 2018 – Oct 2021</h4>
+         <ul>
           <li>Worked on the 3-year India-UK Water Quality Award winning NERC-funded Fate and Management of Emerging Contaminants (FaME) project (the UK Natural Environment Research Council Award No NE/R003548/1) and led its work package.</li>
           <li>Taught the Environmental Processes module (ECMM134) with Dr Seyed Sadr and Prof Fayyaz Memon, gave a series of lectures on our research project to students, and supervised students at both the undergraduate and postgraduate levels.</li>
           <li>Developed innovative sustainable treatment solutions based on green graphene-based nano-adsorbents for the removal of emerging contaminants (pharmaceuticals) from wastewaters.</li>
@@ -334,10 +369,10 @@
           <li>Co-organised the AQUA≈360 Conference (2021) at the University of Exeter (Organising Committee).</li>
           <li>Engaged in board meetings of the Centre for Resilience in Environment, Water, and Waste (CREWW) at the University of Exeter in preparation for its launch in 2023.</li>
         </ul>
-
-        <h4>Mar 2018 – Sept 2018</h4>
+       
+        <h3>Assistant Professor (Lecturer) in Chemical Engineering</h3>
         <p>Cairo University, Faculty of Engineering, Chemical Engineering Department, Egypt</p>
-        <h5>Assistant Professor (Lecturer) in Chemical Engineering</h5>
+        <h4 style="font-size: 0.9em;">Mar 2018 – Sept 2018</h4>
         <ul>
           <li>Promoted from Associate Lecturer.</li>
           <li>Provided academic and career guidance to students through one-on-one consultations, advising on course selection, research projects, and career paths within the field of chemical engineering.</li>
@@ -345,10 +380,12 @@
           <li>Contributed to departmental committees (such as curriculum committee and research committee) and actively participated in decision-making processes.</li>
           <li>On research mission and leave afterwards till present (Undergoing application for associate professor promotion).</li>
         </ul>
-
-        <h4>Oct 2017 – Dec 2017</h4>
+      <article>
+      <article>
+        <h3>Previous Roles</h3>
+        <h4 style="font-size: 0.9em;">Oct 2017 – Dec 2017</h4>
         <p>Kyushu University, Department of Earth System Science and Technology, Interdisciplinary Graduate School of Engineering Sciences (IGSES), Japan</p>
-        <h5>Researcher</h5>
+        <h4>Researcher</h4>
         <ul>
           <li>Researched effective nanomaterial composites for multipurpose use.</li>
           <li>Supervised four PhD students and two MSc students at the WEEL - Water and Environmental Engineering Laboratory (lab website accessed here).</li>
@@ -357,34 +394,34 @@
           <li>Co-organised the 1st, 2nd, and 3rd International Exchange and Innovation Conference on Engineering & Sciences (IEICES), Fukuoka, Japan each year since 2015.</li>
         </ul>
 
-        <h4>Apr 2017 – Sept 2017</h4>
+        <h4 style="font-size: 0.9em;">Apr 2017 – Sept 2017</h4>
         <p>Kyushu University, Department of Earth System Science and Technology, Interdisciplinary Graduate School of Engineering Sciences (IGSES), Japan</p>
-        <h5>Teaching Assistant</h5>
+        <h4>Teaching Assistant</h4>
         <ul>
           <li>Helped students with their materials and environmental-related courses and modules, supporting their lab work, and facilitating various research issues.</li>
           <li>Helped organise and lead practical sessions and seminars, advised students, graded homework and examinations, and provided advice and mentoring to them.</li>
           <li>Worked with academics and other researchers to set up experiments, contributed to research projects, and maintained a productive research workflow.</li>
         </ul>
 
-        <h4>Apr 2015 – Sept 2015</h4>
+        <h4 style="font-size: 0.9em;">Apr 2015 – Sept 2015</h4>
         <p>Kyushu University, WEEL, Department of Earth System Science and Technology, Interdisciplinary Graduate School of Engineering Sciences (IGSES), Japan</p>
-        <h5>Research Assistant</h5>
+        <h4>Research Assistant</h4>
         <ul>
           <li>Asked by my direct supervisor to work as an RA owing to my high grades and great research qualities.</li>
           <li>Participated in supervising research works conducted by new MSc and PhD students.</li>
         </ul>
 
-        <h4>Oct 2014 – Feb 2018</h4>
+        <h4 style="font-size: 0.9em;">Oct 2014 – Feb 2018</h4>
         <p>Cairo University, Faculty of Engineering, Chemical Engineering Department, Egypt</p>
-        <h5>Associate Lecturer in Chemical Engineering</h5>
+        <h4>Associate Lecturer in Chemical Engineering</h4>
         <ul>
           <li>Promoted from Research and Teaching Assistant.</li>
           <li>On leave from Sept 2014 to Dec 2017 to pursue my PhD and postdoctoral studies in Japan.</li>
         </ul>
 
-        <h4>Jan 2011 – Sept 2014</h4>
+        <h4 style="font-size: 0.9em;">Jan 2011 – Sept 2014</h4>
         <p>Cairo University, Faculty of Engineering, Chemical Engineering Department, Egypt</p>
-        <h5>Research and Teaching Assistant in Chemical Engineering</h5>
+        <h4>Research and Teaching Assistant in Chemical Engineering</h4>
         <ul>
           <li>Responsible for instructing and mentoring students in a number of essential modules, such as Computational Chemical Engineering (for credit system students in 2011), Electrochemistry and Corrosion, Applied Heat Transfer, Thermodynamics, and Chemical and Environmental Engineering Laboratory.</li>
           <li>Actively participated in departmental meetings, contributing to curriculum updates, resource planning, and academic decision-making processes.</li>
@@ -394,8 +431,20 @@
     </section>
   </div>
 
-<!-- Publications Content -->
-<div class="tile-content" id="publications-content">
+<!-- Research Interests and Projects Content -->
+<div class="tile-content" id="research-content">
+  <section id="research">
+    <h2>Research Interests</h2>
+    <p>My work focuses on two primary areas:</p>
+    <ul>
+      <li><strong>Synthesising Sustainable Composite (Nano)materials:</strong> Development of advanced materials for diverse applications diverse applications such as environmental remediation (wastewater treatment), manufacturing, refractories, insulation, and green energy generation, contributing to innovation, sustainable practices, and a circular economy.</li>
+      <li><strong>Process Modelling and Simulation:</strong> Designing and optimising sustainable industrial processes to enhance efficiency and reduce environmental impact.</li>
+    </ul>
+  </section>
+</div>
+
+  <!-- Publications Content -->
+  <div class="tile-content" id="publications-content">
     <section id="publications">
       <h2>Published Articles in Peer-reviewed Journals</h2>
       <h3>2023</h3>
@@ -473,7 +522,7 @@
     </section>
   </div>
 
-  <!-- Photos Gallery Content (tile is empty for now) -->
+  <!-- Photos Gallery Content -->
   <div class="tile-content" id="photos-gallery-content">
     <section id="photos">
       <h2>Photos Gallery</h2>
@@ -484,10 +533,24 @@
       <p>This Photos Gallery will be expanded with more images in the future.</p>
     </section>
   </div>
+<!-- Add Highlights Section above the sliding photos -->
+<div class="highlight-section" style="text-align: center; margin: 20px 0;">
+  <h1 style="font-size: 1.5rem; margin-bottom: 10px;">Highlights</h1>
+  <p style="font-size: 0.75rem; color: #555; max-width: 800px; margin: 0 auto;">
+    Discover the key milestones and achievements throughout my career <br>
+    in advanced materials, nanotechnology, and chemical and environmental engineering innovation.
+  </p>
+</div>
+
+<!-- Slideshow placed AFTER Highlights section so it appears below it -->
+<div class="slideshow-container">
+  <img id="slideshow-img" src="" alt="Slideshow Image">
+  <div id="slideshow-caption"></div>
+</div>
 
   <!-- Slideshow placed AFTER all tile-contents so it appears below everything -->
   <div class="slideshow-container">
-    <img id="slideshow-img" src="" alt="Slideshow Image">
+    <img id="slideshow-img" src="">
     <div id="slideshow-caption"></div>
   </div>
 
@@ -538,19 +601,21 @@
     const slideshowImages = [
       "images/PhD Graduation at Kyushu University Autumn 2017.jpg",
       "images/FaME Project 2021.jpg",
+      "images/FAME Project Team 2021.jpg",
       "images/Collaboration with Industry 2023.jpg",
       "images/Wienerberger 2023.jpg",
-      "images/Materials Show First Prize Award 2023.jpg",
+      "images/Advanced Materials Show First Prize Award 2023.jpg",
       "images/Transforming Foundation Industries Network+ Conference - Sheffield 2024.jpg",
       "images/TransFIRe Consortium 2024.jpg"
     ];
 
     const slideshowCaptions = [
-      "PhD Graduation at Kyushu University Autumn 2017",
+      "PhD Graduation at Kyushu University - Autumn 2017",
       "FaME Project 2021",
+      "FAME Project Team 2021",
       "Collaboration with Industry 2023",
       "Wienerberger 2023",
-      "Materials Show First Prize Award 2023",
+      "Advanced Materials Show First Prize Award 2023",
       "Transforming Foundation Industries Network+ Conference - Sheffield 2024",
       "TransFIRe Consortium 2024"
     ];
